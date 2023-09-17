@@ -19,8 +19,14 @@ func (s *UserService) GetUserByID(id int) (*models.User, error) {
 	return s.userRepository.GetUserByID(id)
 }
 
-func (s *UserService) CreateUser(user *models.User) (int, error) {
-	return s.userRepository.CreateUser(user)
+func (s *UserService) CreateUser(user *models.CreateUserSchema) (int, error) {
+	newuser := models.User{
+		Name:     user.Name,
+		Email:    user.Email,
+		Password: user.Password,
+		IsAdmin:  false,
+	}
+	return s.userRepository.CreateUser(&newuser)
 }
 
 func (s *UserService) UpdateUser(user *models.User) error {

@@ -12,7 +12,7 @@ type User struct {
 	Name      string `json:"username" gorm:"not null"`
 	Email     string `json:"email" gorm:"unique;not null"`
 	Password  string `json:"password" gorm:"not null"`
-	Role      string `json:"role" gorm:"not null"`
+	IsAdmin   bool   `json:"isAdmin" gorm:"not null"`
 	// Add more fields as needed, such as Name, Password, Role, etc.
 }
 

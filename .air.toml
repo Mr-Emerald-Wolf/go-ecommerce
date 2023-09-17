@@ -1,0 +1,11 @@
+# .air.toml
+
+[build]
+  cmd = "go build -o ./tmp/main cmd/server/main.go"
+  binary = "./tmp/main"
+  root = "./"
+  delay = 1000
+
+[watcher]
+  paths = ["./"]
+  exclude_dirs = ["tmp", "vendor", "node_modules"]
